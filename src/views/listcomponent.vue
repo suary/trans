@@ -21,7 +21,7 @@
           <template #title>
             <span
               :style="{ color: item.type === 'income' ? '#07c160' : '#ee0a24' }"
-              >{{ item.type === "income" ? "+" : "-" }}¥{{ item.totalfee }}</span
+              >{{ item.type === "income" ? "+" : "-" }}¥{{ item.totalfee }}{{item.checked===false?'(待确认)':''}}</span
             >
           </template>
         </van-cell>
@@ -53,7 +53,6 @@ export default {
         this.page += 1;
         this.list = [...this.list, ...res];
         if (this.sort) {
-            console.log(1)
             this.list=this.list.sort((a,b)=>-a.totalfee+b.totalfee)
         }
         this.loading = false;

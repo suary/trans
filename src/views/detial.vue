@@ -31,7 +31,11 @@
           />
         </template>
       </van-cell> -->
+
     </van-cell-group>
+      <van-button v-if="!data.checked" style="margin-top:8px;margin-left:4px;" type="primary" @click="checkMoney">
+        确认
+      </van-button>
   </div>
 </template>
 <script>
@@ -46,6 +50,14 @@ export default {
       this.data = res;
     });
   },
+  methods:{
+    checkMoney(){
+      this.$http.post('/api/check',{id:this.$route.params.id}).then(()=>{
+         this.$toast('已确认')
+        this.$router.back()
+      })
+    }
+  }
 };
 </script>
 <style lang="less" scoped>
