@@ -38,7 +38,7 @@
         placeholder="终点"
         :rules="[{ required: true, message: '请填写起始地点' }]"
       />
-      <van-field name="radio" label="是否有装车费">
+      <van-field name="radio" label="是否有装卸费">
         <template #input>
           <van-radio-group v-model="radio1" direction="horizontal">
             <van-radio name="1">是</van-radio>
@@ -51,9 +51,9 @@
         v-if="radio1 == 1"
         name="zcfee"
          type="number"
-        label="装车费（元）"
-        placeholder="装车费"
-        :rules="[{ required: true, message: '请填写装车费' }]"
+        label="装卸费（元）"
+        placeholder="装卸费"
+        :rules="[{ required: true, message: '请填写装卸费' }]"
       />
       <van-field name="radio" label="是否有信息费">
         <template #input>
@@ -89,6 +89,13 @@
         placeholder="其他费用"
         :rules="[{ required: true, message: '请填写其他费用' }]"
       />
+       <van-field
+        v-model="servicefee"
+        name="servicefee"
+        label="运满满服务费（元）"
+         type="number"
+        placeholder="运满满服务费"
+      />
       <van-field
         v-model="remark"
         name="remark"
@@ -120,6 +127,7 @@ export default {
       otherfee: "",
       address: "",
       addressto:'',
+      servicefee:"",
       date:'',
       remark:'',
       showCalendar: false,

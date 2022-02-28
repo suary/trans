@@ -12,9 +12,11 @@
         <van-cell title="总运费" :value="data.fee" />
         <van-cell title="起点" :value="data.address" />
         <van-cell title="终点" :value="data.addressto" />
-      <van-cell title="装车费" :value="data.zcfee" v-if="data.zcfee" />
+      <van-cell title="装卸费" :value="data.zcfee" v-if="data.zcfee" />
       <van-cell title="信息费" :value="data.infofee" v-if="data.infofee"/>
       <van-cell title="其他费用" :value="data.otherfee" v-if="data.otherfee" />
+      <van-cell title="运满满服务费" :value="data.servicefee" v-if="data.servicefee" />
+      
       </template>
       <template v-else>
       <van-cell title="费用（元）" :value="data.fee" />
